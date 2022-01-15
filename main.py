@@ -18,17 +18,18 @@ async def on_ready():
 {Fore.MAGENTA}██║╚██╔╝██║██╔══██║╚════██║╚════██║    ██║  ██║██║╚██╔╝██║
 {Fore.MAGENTA}██║ ╚═╝ ██║██║  ██║███████║███████║    ██████╔╝██║ ╚═╝ ██║
 {Fore.MAGENTA}╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝    ╚═════╝ ╚═╝     ╚═╝
-{Fore.MAGENTA}                     By grim#5555              
+{Fore.MAGENTA}                     Logged in as {client.user.name}#{client.user.discriminator}              
 {Fore.MAGENTA}                      [1] Mass Dm 
-{Fore.MAGENTA}                      [2] Exit                                                 
+{Fore.MAGENTA}                      [2] Suprise                                                 
 ''')
  sshh = input(f"{Fore.GREEN}Select>>")
  if sshh == '1':
-  input2 = input(f"{Fore.GREEN}What Should I Send?>>")
+  input2 = input(f"{Fore.GREEN}What u wanna send?>>")
   for user in client.user.friends:                
    await user.send(f"{input2}")
    print(f"{Fore.GREEN}[+] Sent{Fore.WHITE} message To {user}")
  elif sshh == '2':
+    print(f'{Fore.MAGENTA}\nwhat did u expect lol')
     os._exit  
 
 client.run(token, bot = False)
