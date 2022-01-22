@@ -5,6 +5,7 @@ import os
 from colorama import Fore
 from time import sleep
 import requests
+from discord import Webhook, RequestsWebhookAdapter
 intents = discord.Intents.default()
 intents.members = True
 client = commands.Bot(command_prefix = '.', help_command = None, intents=intents)
@@ -37,8 +38,9 @@ async def on_ready():
 {Fore.MAGENTA}                      [2] Token Checker
                                     [3] Mass Friend Deleter
                                     [4] Advanced Token Checker
-                                                
+                                    [5] Webhook Spammer              
 ''')
+
  sshh = input(f"{Fore.GREEN}Select: ")
  if sshh == '1':
   input2 = input(f"{Fore.GREEN}What u wanna send?: ")
@@ -82,16 +84,23 @@ async def on_ready():
     print(f"Avatar Url = {client.user.avatar_url}")
     print(f"Token = {token}")
     print(Fore.RESET)
+ elif sshh == '5':
+   webhookie = input('Webhook url: ')
+   webhook = Webhook.from_url(webhookie, adapter=RequestsWebhookAdapter())
+   msgg = input('What to spam?: ')
+   print(f'I am now sending \'{msgg}\' 50 times.')
+   sleep(3)
+   os.system('cls')
+   for i in range(50):
+     webhook.send(msgg)
+     print(f'[+] Sent {Fore.BLUE}{msgg} {Fore.WHITE}{i} {Fore.GREEN}times.')   
 
 
-         
-          
- 
- 
-
-                       
+                     
 
 client.run(token, bot = False)
+
+
             
 if r.status_code != 200:
   print(f"\n{Fore.LIGHTRED_EX}Token {Fore.LIGHTGREEN_EX}{token}{Fore.LIGHTRED_EX} is invalid, exiting in 5 seconds.")
